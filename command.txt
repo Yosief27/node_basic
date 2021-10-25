@@ -1,0 +1,14 @@
+1, node file_name //to run in the terminal with out file extenition.
+2.working between two file transfering data between two file we need the keywords 
+    1.const res=require('/.filename') ,in the front fiel or where we want to display
+    2.model.export={
+        variable_name: variable_name
+        ,or 
+        we can write 
+        age //age:age
+    }
+    3.res.age or res.variable_name //to access the those variables
+
+    4.const {}=require('filename')
+    //{} inside this we can name the same name of variable which we use in the other file ,then we can access directly with out . operation.
+    
