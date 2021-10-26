@@ -1,5 +1,8 @@
 const http=require('http');
 const fs=require('fs');
+const  _=require('lodash');
+const num=_.random(0,20);
+console.log(num)
 const server=http.createServer((req,res)=>{
     //using the req properties like url and method to find out the url content and the way of communiction.i.e get post ...
     console.log(req.url,req.method);
@@ -14,6 +17,7 @@ const server=http.createServer((req,res)=>{
         case '/about':
             path+='about.html';
 
+           console.log(path);
             res.statusCode=200;
             break;
 
@@ -25,7 +29,7 @@ const server=http.createServer((req,res)=>{
             break;
         default :
             path+='404.html';
-            
+           console.log(path);
             res.statusCode=404
             break;
     }
