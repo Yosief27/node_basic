@@ -11,4 +11,6 @@
 
     4.const {}=require('filename')
     //{} inside this we can name the same name of variable which we use in the other file ,then we can access directly with out . operation.
-    
+
+
+    5.
