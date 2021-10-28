@@ -12,5 +12,12 @@
 4.const {}=require('filename')
     //{} inside this we can name the same name of variable which we use in the other file ,then we can access directly with out . operation.
 
+5.Installing third party parkages with yarn 
+    yarn global add nodemon
+            #yarn run nodemon file_name
 
-    5.
+
+    to start a package.json we can type 
+        yarn init 
+    and add another packages like lodash ....
+        yarn add lodash ...
