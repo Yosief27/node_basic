@@ -1,5 +1,13 @@
 {
   "dependencies": {
+    "global": "^4.4.0",
+    "lodash": "^4.17.21",
     "nodemon": "^2.0.14"
-  }
+  },
+  "name": "Node_project",
+  "version": "1.0.0",
+  "main": "server\\server.js",
+  "repository": "https://github.com/Yosief27/node_basic.git",
+  "author": "Yosief27 <josiyoniug@gmail.com>",
+  "license": "MIT"
 }
