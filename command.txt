@@ -14,4 +14,10 @@
 
 5.Installing third party parkages with yarn 
     yarn global add nodemon
-            #nodemon file_name
+            #yarn run nodemon file_name
+
+
+    to start a package.json we can type 
+        yarn init 
+    and add another packages like lodash ....
+        yarn add lodash ...
