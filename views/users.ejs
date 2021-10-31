@@ -1,0 +1,11 @@
+<html>
+    <%-include('./partials/header.ejs')%>
+    <body>
+    <%-include('./partials/nav.ejs')%>
+    <h1>List of registered users.</h1>
+    <% data.forEach(item=>{%>
+        <p><h3>Name:</h3><%=item%></p><br>
+    <%})%>
+</body>
+<%-include('./partials/footer.ejs')%>
+</html>
