@@ -24,4 +24,5 @@
 6.To run the application we do 
     # yarn run nodemon app
 
-7.
+7.when sharing project we do not need to share the whole  directory with its node_module huge folder ,so we can put it on the gitignore folder and when ever we pull project from the git hub which requires  node_modules we can do it by using 
+    # yarn install or npm install 

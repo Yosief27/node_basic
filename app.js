@@ -40,31 +40,38 @@ app.use((req,res,next)=>{
     console.log('method',req.method);
     //function which will help us to move on once we get the  request details.
     next();
-})
+});
+
+app.get(('/'),(req,res)=>{
+        
+    res.redirect('/all-blogs');
+
+
+});
+//we create an instance of a blog to send an object to the database
 app.get(('/add_blog'),(req,res)=>{
     const add_blog=new Blog({
-        title:'skolan Lorem node js1',
+        title:'resend Lorem node js1',
         
-        snippet:'skolan Lorem node js2',
-        body:'skolan Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent feugiat pharetra turpis, id viverra velit placerat eu. Pellentesque ex dui, placerat et purus nec, eleifend luctus turpis. Ut vitae placerat libero, in eleifend mauris. Maecenas rutrum, lectus sed gravida cursus, leo nisl sagittis ex, id tristique metus erat ultrices elit.',
+        snippet:'resend to Lorem node js2',
+        body:'resend to skolan Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent feugiat pharetra turpis, id viverra velit placerat eu. Pellentesque ex dui, placerat et purus nec, eleifend luctus turpis. Ut vitae placerat libero, in eleifend mauris. Maecenas rutrum, lectus sed gravida cursus, leo nisl sagittis ex, id tristique metus erat ultrices elit.',
     })
-    add_blog.save().then((res)=>{
-        console.log(res);
+    add_blog.save().then((result)=>{
+        res.send(result);
+    }).catch((err)=>{
+        res.send(err)
+    })
+});
+//we do not need to create an instance of the model to fetch data from the database ,why?
+app.get('/all-blogs',(req,res)=>{
+    Blog.find().sort({createdAt:-1})
+    .then((result)=>{
+        res.render('index',{title:'home',blogs:result});
     }).catch((err)=>{
         console.log(err)
     })
 })
-app.get(('/'),(req,res)=>{
-        const blogs = [
-    {title: 'Yoshi finds eggs', snippet: 'Lorem ipsum dolor sit amet consectetur'},
-    {title: 'Mario finds stars', snippet: 'Lorem ipsum dolor sit amet consectetur'},
-    {title: 'How to defeat bowser', snippet: 'Lorem ipsum dolor sit amet consectetur'},
-  ];
-    res.render('index',{title:'Home',blogs});
-
-
-});
-app.get('/about/create',(req,res)=>{
+app.get('/blogs/create',(req,res)=>{
     
     res.render('create',{title:'Create a new blog'});
 })
