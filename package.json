@@ -4,8 +4,8 @@
     "express": "^4.17.1",
     "global": "^4.4.0",
     "lodash": "^4.17.21",
-    "nodemon": "^2.0.14",
-    "run": "^1.4.0"
+    "mongoose": "^6.0.12",
+    "nodemon": "^2.0.14"
   },
   "name": "Node_project",
   "version": "1.0.0",
