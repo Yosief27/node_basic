@@ -43,10 +43,10 @@ app.use((req,res,next)=>{
 })
 app.get(('/add_blog'),(req,res)=>{
     const add_blog=new Blog({
-        title:'Lorem node js1',
+        title:'skolan Lorem node js1',
         
-        snippet:'Lorem node js2',
-        body:'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent feugiat pharetra turpis, id viverra velit placerat eu. Pellentesque ex dui, placerat et purus nec, eleifend luctus turpis. Ut vitae placerat libero, in eleifend mauris. Maecenas rutrum, lectus sed gravida cursus, leo nisl sagittis ex, id tristique metus erat ultrices elit. Praesent rutrum purus ac tortor facilisis vulputate. Cras consectetur nisi id tortor lobortis commodo. Aenean sed neque at mauris tincidunt porta quis ac dolor. Etiam pharetra, velit et vestibulum faucibus, neque odio consequat lacus, et tincidunt lacus nunc convallis dolor. Quisque vitae risus vitae mauris congue mollis eget non augue. Nam nec eros eget ipsum pulvinar elementum.',
+        snippet:'skolan Lorem node js2',
+        body:'skolan Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent feugiat pharetra turpis, id viverra velit placerat eu. Pellentesque ex dui, placerat et purus nec, eleifend luctus turpis. Ut vitae placerat libero, in eleifend mauris. Maecenas rutrum, lectus sed gravida cursus, leo nisl sagittis ex, id tristique metus erat ultrices elit.',
     })
     add_blog.save().then((res)=>{
         console.log(res);
