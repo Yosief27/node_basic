@@ -32,6 +32,7 @@ app.get('/about',(req,res)=>{
 })*/
 //basic middle ware to access public folder
 app.use(express.static('./public'));
+app.use(express.urlencoded({extended:true}));
 //basic middle ware logged in request
 app.use((req,res,next)=>{
     console.log('new request is made');
@@ -74,6 +75,14 @@ app.get('/all-blogs',(req,res)=>{
 app.get('/blogs/create',(req,res)=>{
     
     res.render('create',{title:'Create a new blog'});
+})
+app.post('/blogs',(req,res)=>{
+    const blog=new Blog(req.body);
+    blog.save().then((result)=>{
+        res.redirect('/all-blogs')
+    }).catch((err)=>{
+        console.log(err);
+    })
 })
 app.get('/users',(req,res)=>{
     console.log(req.url);
