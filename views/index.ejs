@@ -1,22 +1,24 @@
 <html lang="en">
 <%- include("./partials/header.ejs") %>
-
+import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 <body>
   <%- include("./partials/nav.ejs") %>
 
   <div class="blogs content">
-    <h2>All Blogs</h2>
+    <h2>All Projects</h2>
 
     <% if (blogs.length > 0) { %>
       <% blogs.forEach(blog => { %>
-      <a href="/blogs/<%=blog._id%>" >  <h3 class="title"><%= blog.title %></h3>
+       <h3 class="title"><%= blog.title %></h3>
         <p class="snippet"><%= blog.snippet %></p>
-      </a>
 
         <p class="body"><%= blog.body %></p>
+        <a href="/blogs/<%=blog._id%>" ><p>Click here to Update or Delete a Project</p>       </a>
+
+
       <% }) %>
     <% } else { %>
-      <p>There are no blogs to display...</p>
+      <p>There are no Projects to display...</p>
     <% } %>
     
   </div>

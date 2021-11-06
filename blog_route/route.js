@@ -1,51 +1,12 @@
 const express=require('express');
 const routeBlog=express.Router();
-const Blog=require('../models/blog');
+const controller=require('../controllers/blogController');
 
+routeBlog.get('/', controller.blog_index );
 
-routeBlog.get('',(req,res)=>{
-    Blog.find().sort({createdAt:-1})
-    .then((result)=>{
-        res.render('index',{title:'home',blogs:result});
-    }).catch((err)=>{
-        console.log(err)
-    })
-})
-
-routeBlog.get('/create',(req,res)=>{
-    
-    res.render('create',{title:'Create a new blog'});
-})
-routeBlog.post('/add',(req,res)=>{
-    
-    const blog=new Blog(req.body);
-    console.log(req.body);
-    blog.save().then((result)=>{
-        res.redirect('/')
-    }).catch((err)=>{
-        console.log(err);
-    })
-})
-routeBlog.get('/:id',(req,res)=>{
-    const id=req.params.id;
-
-    Blog.findById(id)
-    .then((result)=>{
-     res.render('detail', {title:'blog detail',blog:result});
-    }).catch((err)=>{
-        console.log(err)
-    })
-})
-routeBlog.delete('/:id',(req,res)=> {
-    
-    const id=req.params.id;
-    console.log(id)
-    Blog.findByIdAndDelete(id)
-    .then(result => {
-      res.json({ redirect: '/blogs' });
-    })
-    .catch(err => {
-      console.log(err);
-    });
-})
+routeBlog.get('/create',controller.blog_create_get);    
+routeBlog.post('/add',controller.blog_create_post)
+routeBlog.get('/:id',controller.blog_detail);
+routeBlog.delete('/:id',controller.blog_delete);  
+routeBlog.get('/update/:id',controller.blog_create_pop); 
 module.exports=routeBlog;

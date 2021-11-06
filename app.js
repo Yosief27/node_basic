@@ -34,7 +34,7 @@ app.get('/about',(req,res)=>{
 //basic middle ware to access public folder
 app.use(express.static('./public'));
 
-
+//middle ware to handle the url from the browser
 app.use(express.urlencoded({extended:true}));
 //basic middle ware logged in request
 /*/*//*/*//*/*app.use((req,res,next)=>{
@@ -52,6 +52,7 @@ app.use(express.urlencoded({extended:true}));
 app.get('/',(req,res)=>{
     res.redirect('/blogs');
 })
+app.get('/')
 app.get('/users',(req,res)=>{
     console.log(req.url);
     const data=['josi','yoni','dawit'];
