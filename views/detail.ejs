@@ -5,7 +5,7 @@
 <body>
   <%- include("./partials/nav.ejs") %>
 
-  <div class="blogs content">
+  <div class="details content">
     <h2>Detail <%=title%></h2>
 
    
@@ -14,18 +14,32 @@
       </a>
 
         <p class="body"><%= blog.body %></p>
-   
-    
-        <a class="delete" data-doc="<%= blog._id %>"><img src='/trash_s.svg',alt='Delete'></a>
-             <a class="update" data-doc="<%= blog._id %>">Update</a>
 
-  </div>
+<div class='nav'>
+  <button class="update btn vertical" data-doc="<%=blog._id%>">
+    <i class="btnIcon fa fa-edit"></i>
+    <span>UPDATE</span>
+
+  </button>
+  <button class="delete btn horizontal" data-doc="<%= blog._id %>">
+    <i class="btnIcon fa fa-trash"></i>
+    <span>DELETE</span>
+  </button>
+
+
+
+
+
+</div>
+</div>
+
+      
   
   <%- include("./partials/footer.ejs") %>
   <script>
-  const trashcan=document.querySelector('a.delete');
+  const trashcan=document.querySelector('button.delete');
 
-  const updateCan=document.querySelector('a.update');
+  const updateCan=document.querySelector('button.update');
 trashcan.addEventListener('click',(e)=>{
     console.log('clicked');
   const endpoint=`/blogs/${trashcan.dataset.doc}`;
@@ -40,14 +54,17 @@ trashcan.addEventListener('click',(e)=>{
 })
 updateCan.addEventListener('click',(e)=>{
     console.log('clicked');
+  
   const endpoint=`/blogs/update/${updateCan.dataset.doc}`;
-  fetch(endpoint,{method:'GET'})
+  window.location.href=endpoint;
+/*fetch(endpoint,{method:'GET'})
   /*.then((response)=>{response.json()})
   .then((data)=>{console.log(data);window.location.href=data.redirect})
-  .catch(err=>console.log(err));*/.then(response => response.json())
-      .then(data => window.location.href = data.redirect)
+  .catch(err=>console.log(err));.then(response => response.json())
+      .then(data =>{console.log(data.blog);} )
       .catch(err => console.log(err));
-  
+  */
+
 })
 </script>
 

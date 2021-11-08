@@ -3,19 +3,38 @@
 
 <body>
   <%- include("./partials/nav.ejs") %>
-
+<%if(data.length===0){%>
   <div class="create-blog content">
-    <form action="/blogs/add" method="POST">
+    <form action="/blogs/update" method="POST">
+      
       <label for="title">Project Title:</label>
-      <input type="text" id="title" name="title" required>
+      <input type="text" id="title" name="title" required >
       <label for="snippet">Language Used:</label>
       <input type="text" id="snippet" name="snippet" required>
       <label for="body">Project Details:</label>
       <textarea id="body" name="body" required></textarea>
       <button>Submit</button>
     </form>
-  </div>
+    <%}else{%>
+<div class="create-blog content">
+    <form action="/blogs/add" method="PUT">
+      <input type='hidden' id='id' value=<%=data.id%>/>
+      <label for="title">Project Title:</label>
+      <input type="text" id="title" name="title"  value='<%=data.title%>'/>
+      <label for="snippet">Language Used:</label>
+      <input type="text" id="snippet" name="snippet"  value='<%=data.snippet%>'>
+      <label for="body">Project Details:</label>
+      <textarea type='text' id="body" name="body" ><%=data.body%></textarea>
+      <button>Update</button>
+    </form>
+
+    </div>
+    <%}%>
 
   <%- include("./partials/footer.ejs") %>
+  <script>
+  console.log('done');
+</script>
 </body>
+
 </html>
